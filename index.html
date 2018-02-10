@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Archer's Assistant</title>
+</head>
+<body>
+
+    <form action="" class="question" id="firstInput"><!-- will output draw length, arrow spine, and bow height -->
+        <label for="armSpan">Enter your arm span</label>
+        <input type="text" name="armSpan" id="armSpan">
+        <input type="submit" value="Next" class="nextButton">
+    </form>
+
+    <hr>
+
+    <form action="" class="question" id="secondInput"><!-- will output fletching type and filter shaft material -->
+        <p>What kind of bow will you use?</p>
+        <input type="radio" name="bowType" id="traditional" value="traditional">
+        <label for="traditional">Traditional</label>
+        <input type="radio" name="bowType" id="olympic" value="olympic">
+        <label for="olympic">Olympic</label>
+        <input type="radio" name="bowType" id="compound" value="compound">
+        <label for="compound">Compound</label>
+        <input type="submit" value="Next" class="nextButton">
+    </form>
+
+    <hr>
+
+    <form action="" class="question" id="thirdInput"><!-- will filter shaft wall thickness and diameter -->
+        <p>What arrow material will you use?</p> 
+        <input type="radio" name="shaftMaterial" id="wood" value="wood">
+        <label for="wood">Wood</label>
+        <input type="radio" name="shaftMaterial" id="carbon" value="carbon">
+        <label for="carbon">Carbon</label>
+        <input type="radio" name="shaftMaterial" id="aluminum" value="aluminum">
+        <label for="aluminum">Aluminum</label>
+        <input type="submit" value="Next" class="nextButton">
+    </form>
+
+    <hr>
+
+    <form action="" class="question" id="fourthInput"><!-- will output shaft wall thickness and diameter -->
+        <label for="poundage">What's your poundage?</label>
+        <select name="poundage" id="poundage">
+            <option value="#">#</option>
+        </select>
+        <input type="submit" value="next">
+    </form>
+
+    <hr>
+    <form action="" class="question" id="fifthInput"><!-- will output arrowhead type -->
+        <p>What will you be doing?</p>
+        <input type="radio" name="usage" id="targetShooting" value="target">
+        <label for="targetShooting">Target Shooting</label>
+        <input type="radio" name="usage" id="hunting" value="hunting">
+        <label for="hunting">Hunting</label>
+        <input type="submit" value="next">
+    </form>
+
+    <form action="" class="results" id="results">
+        <a href="#results" class="resultsButton" id="finalSubmit" data-hash="#quizResults">
+            <h5>See my results!</h5>
+        </a>
+    </form>
+
+    <!-- javascript files -->
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
