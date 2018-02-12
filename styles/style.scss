@@ -1,0 +1,5 @@
+// windows prepros bug requires scss extension added to properly import
+@import "components/variables";
+@import "components/typography";
+@import "components/global";
+@import "components/media";

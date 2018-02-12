@@ -1,0 +1,132 @@
+body {
+    font-family: 'Gurajada', serif;
+    font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Rammetto One', cursive;
+    font-variant: small-caps;
+}
+
+
+.prerequisites {
+    padding-right: 40px;
+    color: $white;
+    p {
+        font-size: 2.7rem;
+    }
+}
+
+form[id="thirdInput"] {
+    label {
+        color: $white;
+        font-size: 1.8rem;
+        margin-right: 30px;
+        padding-left: 10px;
+    }
+}
+
+.question {
+    padding-left: 10px;
+    input[type="text"] {
+        border: 2px solid $gingerbread;
+        width: 50%;
+        height: 45px;
+        padding: 0 10px;
+        font-size: 2rem;
+        text-align: right;
+    }
+    input[type="submit"] {
+        background-color: $gingerbread;
+        color: $white;
+        width: 30%;
+        border: 0;
+        margin-left: 10px;
+        padding: 0 0;
+        font-size: 1.8rem;
+        &:hover {
+            background-color: $pumpkin;
+            color: $black;
+        }
+        &:active {
+            background-color: $black;
+            color: $white;
+        }
+    }
+    input[type="radio"] {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+
+form[id="fourthInput"] input[type="submit"]:hover {
+    border: 1px solid black;
+}
+
+.bowInputs label {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 50px;
+}
+
+.shaftInfo {
+    margin-top: 7%;
+    text-align: center;
+    align-self: center;
+    h1, p {
+        color: $pumpkin;
+    }
+    h3 {
+        background-color: $white;
+        padding: 0 30px;
+        width: 100%;
+    }
+    p {
+        font-size: 2rem;
+        line-height: 2.4rem;
+    }
+}
+
+.usageInfo {
+    text-align: center;
+    padding-bottom: 20px;
+    h1, p {
+        color: $pumpkin;
+    }
+    h3 {
+        background-color: $white;
+        padding: 0 30px;
+        width: 100%;
+    }
+    p {
+        font-size: 2rem;
+        line-height: 2.4rem;
+    }
+    form[id="fifthInput"] label {
+        display: block;
+        font-size: 2rem;
+    }
+}
+
+.highlight {
+    color: $white;
+    font-size: 2.1rem;
+}
+
+.poundage {
+    color: $white;
+    p {
+        font-size: 2rem;
+        padding-right: 40px;
+    }
+}
+
+.summary {
+    font-family: 'Rammetto One', cursive;
+    font-size: 1.2rem;
+}
+
+.dynamic {
+    color: $gingerbread;
+}

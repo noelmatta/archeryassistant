@@ -5,70 +5,211 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Archer's Assistant</title>
+    <!-- Designed and built by Noel Matta for HackerYou's cohort 17 full-time front-end bootcamp -->
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Gurajada|Rammetto+One" rel="stylesheet">
+    <script src="https://use.fontawesome.com/715aee6b06.js"></script>
 </head>
 <body>
 
-    <form action="" class="question" id="firstInput"><!-- will output draw length, arrow spine, and bow height -->
-        <label for="armSpan">Enter your arm span</label>
-        <input type="text" name="armSpan" id="armSpan">
-        <input type="submit" value="Next" class="nextButton">
-    </form>
+    <header>
+        <div class="wrapper clearfix">
+            <div class="nav flexContainer">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Archer's Assistant logo">
+                    <form action="" class="question" id="intro">
+                        <input type="submit" value="Let's Start!" class="nextButton">
+                    </form>                    
+                </div>
+                <div class="physics">
+                    <h2>Fun Fact:</h2>
+                    <h3>Archery's A Science!</h3>
+                    <h4>(physics, to be exact)</h4>
+                    <p>The longer your arms, the further back you can pull the bowstring to exert more force in pushing your arrow forward.</p>
+                    <p>This is called draw length and will affect the size of your arrows. There are other factors to consider when arrow shopping and this site will help you determine your exact specifications so you too can become a modern-day Legolas or Katniss!</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="setup">
+            <div class="wrapper clearfix">
+                <div class="flexContainer">
+                    <div class="prerequisites">
+                        <h1>Wait! Before We Get Started!!!</h1>
+                        <p>You will need a roll of tape measure. But that's all, we promise! So go get one! We can wait.</p>
+                        <form action="" class="question" id="prereq">
+                            <input type="submit" value="Ok, I Got It!" class="nextButton">
+                        </form>                        
+                    </div>
+                    <div class="tapeMeasure">
+                        <img src="images/measuringtape.png" alt="Measuring Tape">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="armSpan">
+            <div class="wrapper clearfix">
+                <div class="flexContainer">
+                    <div class="humanT">
+                        <h1>Arm Span</h1>
+                        <img src="images/davinci.jpg" alt="Drawing of a man making a T shape">
+                    </div>
+                    <div class="howTo">
+                        <ul>
+                            <li>
+                                <p>Grab your tape measure and pinch the starting point with your middle finger and thumb;
+                                </p>
+                            </li>
+                            <li>
+                                <p>Stand straight and stretch your arms out from your sides (like the letter T) while using your other hand's middle finger
+                                and thumb to pinch the measuring tape at the farthest point you can.
+                                </p>
+                            </li>
+                            <li>
+                                <p>Take note of the inches and this will be your "arm span" to enter below:
+                                </p>
+                            </li>
+                        </ul>
+                        <form action="" class="question" id="firstInput">
+                            <input type="text" name="armSpan" id="armSpan">
+                            <input type="submit" value="Next" class="nextButton">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bowType">
+            <div class="wrapper clearfix">
+                <div class="flexContainer">
+                    <div class="bowTypes">
+                        <h1>Bow Type</h1>
+                        <h3>There are 3 kinds of bows:</h3>
+                        <ul>
+                            <li>
+                                <h3>Traditional</h3>
+                                <p>Traditional bows are best used for recreational purposes and are perfect for archers who value minimalism. Usually made from wood, these bows do not need any extra accessories.</p>
+                            </li>
+                            <li>
+                                <h3>Olympic</h3>
+                                <p>Olympic bows are commonly used in competitive shooting and are composed of high-quality materials. They also can be modified with additional equipment like stabilizers and clickers. </p>
+                            </li>
+                            <li>
+                                <h3>Compound</h3>
+                                <p>Compound bows are designed for hunters and are outfitted with a variety of pulleys to improve the archer's stamina while shooting arrows at extremely heavy poundages for maximum penetrative power.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bowInputs">
+                        <h2>What Bow Will You Use?</h2>
+                            <form action="" class="question secondInput" id="secondInput">
+                                <input type="radio" name="bowType" id="traditional" value="traditional">
+                                <label for="traditional">Traditional</label>
+                                <input type="radio" name="bowType" id="olympic" value="olympic">
+                                <label for="olympic">Olympic</label>
+                                <input type="radio" name="bowType" id="compound" value="compound">
+                                <label for="compound">Compound</label>
+                                <input type="submit" value="Next" class="nextButton">
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="shaftMaterial">
+            <div class="wrapper clearfix">
+                <div class="flexContainer">
+                    <div class="shaftInfo">
+                        <h1>Shaft Material</h1>
+                        <p>Arrow shafts come in many kinds. <span class="highlight">Wood</span> arrows are often used with traditional bows and bought in bulk as they are cheap, but prone to breakage. <span class="highlight">Carbon</span> is light-weight, resulting in a fast and straight flight from bow to target, but with weaker penetration. Strong and flexible, <span class="highlight">aluminum</span> arrows offer deep penetration with a slow and heavy arc path as a trade-off.</p>
+                        <h3>So what Shaft Material Will You Use?</h3>
+                        <form action="" class="question" id="thirdInput">
+                            <input type="radio" name="shaftMaterial" id="wood" value="wood">
+                            <label for="wood">Wood</label>
+                            <input type="radio" name="shaftMaterial" id="carbon" value="carbon">
+                            <label for="carbon">Carbon</label>
+                            <input type="radio" name="shaftMaterial" id="aluminum" value="aluminum">
+                            <label for="aluminum">Aluminum</label>
+                            <input type="submit" value="Next" class="nextButton">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="poundage">
+            <div class="wrapper clearfix">
+                <div class="flexContainer">
+                    <div class="poundageInfo">
+                        <h1>Poundage</h1>
+                        <p>Poundage, also known as Draw Weight, is how heavy the pull of the bowstring is when it is fully stretched to 28 inches.</p>
+                        <p>If
+                        you are new to archery, it is important to use a lighter poundage (below #25) so you can concentrate on perfecting your form!
+                        You can always increase your poundage in the future.</p>
+                    </div>
+                    <div class="poundageInputs">
+                        <h2>What's Your Poundage?</h2>
+                        <form action="" class="question" id="fourthInput">
+                            <select name="poundage" id="poundage">
+                            </select>
+                            <input type="submit" value="Next">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="usage">
+            <div class="wrapper clearfix">
+                <div class="flexContainer">
+                    <div class="usageInfo">
+                        <h1>Usage</h1>
+                        <h3>What Will You Be Doing?</h3>
+                        <form action="" class="question" id="fifthInput">
+                            <span class="usageBlock">
+                                <img src="images/target.png" alt="Target">
+                                <input type="radio" name="usage" id="targetShooting" value="target">
+                                <label for="targetShooting">Target Shooting</label>
+                            </span>
+                            <span class="usageBlock">
+                                <img src="images/bambi.png" alt="Hunting">
+                                <input type="radio" name="usage" id="hunting" value="hunting">
+                                <label for="hunting">Hunting</label>
+                            </span>
+                            <input type="submit" value="Next">
+                        </form>
+                    </div>        
+                </div>
+            </div>
+        </section>
+        <section class="showMe">
+            <div class="wrapper clearfix">
+                <div class="flexContainer">
+                    <div class="submitResults">
+                        <h1>ENOUGH QUESTIONS!</h1>
+                        <form action="" class="outputs" id="outputs">
+                            <h1>
+                                <a href="#outputs" id="outputs">
+                                    Show Me My Archery Specs!
+                                </a>
+                            </h1>
+                        </form>    
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <hr>
+    <footer>
+        <div class="wrapper clearfix">
+            <div class="nav flexContainer">
+                <div class="finalResults">
 
-    <form action="" class="question" id="secondInput"><!-- will output fletching type and filter shaft material -->
-        <p>What kind of bow will you use?</p>
-        <input type="radio" name="bowType" id="traditional" value="traditional">
-        <label for="traditional">Traditional</label>
-        <input type="radio" name="bowType" id="olympic" value="olympic">
-        <label for="olympic">Olympic</label>
-        <input type="radio" name="bowType" id="compound" value="compound">
-        <label for="compound">Compound</label>
-        <input type="submit" value="Next" class="nextButton">
-    </form>
-
-    <hr>
-
-    <form action="" class="question" id="thirdInput"><!-- will determine arrow spine when combined with draw length and poundage -->
-        <p>What arrow material will you use?</p> 
-        <input type="radio" name="shaftMaterial" id="wood" value="wood">
-        <label for="wood">Wood</label>
-        <input type="radio" name="shaftMaterial" id="carbon" value="carbon">
-        <label for="carbon">Carbon</label>
-        <input type="radio" name="shaftMaterial" id="aluminum" value="aluminum">
-        <label for="aluminum">Aluminum</label>
-        <input type="submit" value="Next" class="nextButton">
-    </form>
-
-    <hr>
-
-    <form action="" class="question" id="fourthInput"><!-- will output shaft wall thickness and diameter -->
-        <label for="poundage">What's your poundage?</label>
-        <select name="poundage" id="poundage">
-            <option value="#">#</option>
-        </select>
-        <input type="submit" value="next">
-    </form>
-
-    <hr>
-    <form action="" class="question" id="fifthInput"><!-- will output arrowhead type -->
-        <p>What will you be doing?</p>
-        <input type="radio" name="usage" id="targetShooting" value="target">
-        <label for="targetShooting">Target Shooting</label>
-        <input type="radio" name="usage" id="hunting" value="hunting">
-        <label for="hunting">Hunting</label>
-        <input type="submit" value="next">
-    </form>
-
-    <form action="" class="outputs" id="outputs">
-        <a href="#outputs" class="outputsButton" id="outputs" data-hash="#quizResults">
-            <h5>See my results!</h5>
-        </a>
-    </form>
+                </div>
+            </div>
+        </div>        
+    </footer>
 
     <!-- javascript files -->
     <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
     <script src="js/script.js"></script>
-
+    <script src="js/tweetable.js"></script>
 </body>
 </html>

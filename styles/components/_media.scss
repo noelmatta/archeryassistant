@@ -1,0 +1,18 @@
+/* Portrait tablet and small desktops */
+    @media (max-width: 940px) {
+        .bowInputs {
+            background-color: $white;
+        }
+    }
+    /* Landscape phone to portrait tablet */
+    @media (max-width: 768px) {}
+
+    /* Fix breaking final results link border */
+    @media (max-width: 690px) {
+        .submitResults h1 a, .finalResults h1 a {
+            border: 0;
+        }
+    }
+
+    /* Landscape phones and down */
+    @media (max-width: 480px) {}

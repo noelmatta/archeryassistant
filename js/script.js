@@ -1,14 +1,8 @@
-// Final outputs
-// spine
-
-// Smooth scroll
-
-
 // Create empty object to contain code
 const archerAssist = {};
 
 // Create data set for arrow spines
-archerAssist.arrows = { // There is a pattern to these datasets and I will eventually come back and write a for loop to replace this huge nested array
+archerAssist.arrows = {
     wood: { // data taken from http://tradbow.com/wood-arrow-spine/ 
         24: { // draw length in inches
             44: 'less than 30', // poundage key and corresponding spine measurement value
@@ -240,22 +234,40 @@ archerAssist.getResult = () => {
     $('form').on('submit', function(e) {
         // Prevent page from reloading
         e.preventDefault();
-        
-        if ($(this).attr('id') === 'firstInput') {
+
+        scrollToLocation = function(location) {
+            document.querySelector(location).scrollIntoView({
+                behavior: 'smooth'
+            });
+        };
+
+        if (($(this).attr('id') === 'intro')) {
+            scrollToLocation('.setup');
+        } else if ($(this).attr('id') === 'prereq') {
+            scrollToLocation('.armSpan');
+        } else if ($(this).attr('id') === 'firstInput') {
             const armSpan = Number($('input[name=armSpan]').val());
             archerAssist.validateNumber(armSpan);
+            if (armSpan >= 60) {
+                scrollToLocation('.bowType');
+            };
+            $('input[name=armSpan').val('');
             return archerAssist.results['armSpan'] = armSpan;
         } else if ($(this).attr('id') === 'secondInput') {
             const bowType = $('input[name=bowType]:checked').val();
+            scrollToLocation('.shaftMaterial');
             return archerAssist.results['bowType'] = bowType;
         } else if ($(this).attr('id') === 'thirdInput') {
             const shaftMaterial = $('input[name=shaftMaterial]:checked').val();
+            scrollToLocation('.poundage');
             return archerAssist.results['shaftMaterial'] = shaftMaterial;
         } else if ($(this).attr('id') === 'fourthInput') {
             const poundage = Number($('select[name=poundage]').val());
+            scrollToLocation('.usage');
             return archerAssist.results['poundage'] = poundage;
         } else if ($(this).attr('id') === 'fifthInput') {
             const usage = $('input[name=usage]:checked').val();
+            scrollToLocation('.showMe');
             return archerAssist.results['usage'] = usage;
         };
     });    
@@ -268,20 +280,22 @@ archerAssist.outputs = function() {
         e.preventDefault();
         
         drawLength = archerAssist.getDrawLength(archerAssist.results['armSpan']);
+        finalArmSpan = archerAssist.results['armSpan'];
         bowHeight = archerAssist.getBowHeight(drawLength);
+        finalBowType = archerAssist.results['bowType'];
         fletching = archerAssist.getFletching(archerAssist.results['bowType']);
         shaftMaterial = archerAssist.results['shaftMaterial'];
         arrowHead = archerAssist.getArrowHead(archerAssist.results['usage']);
         poundage = archerAssist.results['poundage'];
+        finalUsage = archerAssist.results['usage'];
         spine = archerAssist.getSpine(shaftMaterial, drawLength, poundage);
+
+        document.querySelector('.finalResults').scrollIntoView({
+            behavior: 'smooth'
+        });
         
-        console.log(drawLength);
-        console.log(bowHeight);
-        console.log(fletching);
-        console.log(shaftMaterial);
-        console.log(arrowHead);
-        console.log(poundage);
-        console.log(spine);
+        // Outputs final results in footer section of page
+        $('.finalResults').append(`<p class="summary">You should buy a bow of <span class="dynamic">${finalBowType}</span> type with a height of <span class="dynamic">${bowHeight}"</span> and draw weight of <span class="dynamic">#${poundage}</span>.</p><p class="summary">Your arm span is <span class="dynamic">${finalArmSpan}"</span> so your <span class="dynamic">${shaftMaterial}</span> arrows should be cut with a draw length of <span class="dynamic">${drawLength}"</span> and <span class="dynamic">${spine}</span> spine rating with <span class="dynamic">${fletching}</span> for fletchings.</p><p class="summary">Also, you will be using <span class="dynamic">${arrowHead}</span> tips for <span class="dynamic">${finalUsage}</span> purposes!</p>`);
     });
 };
     
@@ -292,8 +306,8 @@ archerAssist.getClosestInteger = (items, target) => {
     let closestObj = null;
 
     for (let key in items) {
-        let obj = items[key];
-        let curDiff = Math.abs(obj.value - target);
+        let obj = parseInt(key);
+        let curDiff = Math.abs(obj - target);
 
         if (curDiff < closestVal) {
             closestVal = curDiff;
@@ -306,17 +320,18 @@ archerAssist.getClosestInteger = (items, target) => {
 // Filter arrow spine from arrow type, poundage, and draw length
 archerAssist.getSpine = (shaftMaterial, drawLength, poundage) => {
 
-    // get variables first for filters
+    // Get variables first for filters
     const tempDrawLength = Math.round(drawLength);
     const tempArrowData = archerAssist.arrows[shaftMaterial][tempDrawLength];
     const tempPoundage = archerAssist.getClosestInteger(tempArrowData, tempDrawLength);
 
-    return tempPoundage;
+    // Use variables to filter through data and pass spine strength value to spine
+    return spine = archerAssist.arrows[shaftMaterial][tempDrawLength][tempPoundage];
 };
     
 // Convert armSpan to drawLength
 archerAssist.getDrawLength = (armSpan) => {
-    return drawLength = Math.round((armSpan / 2.5) * 2) / 2; // draw length is arm span divided by 2.5 then rounded up to nearest 0.5
+    return drawLength = Math.round((armSpan / 2.5) * 2) / 2; // Draw length is arm span divided by 2.5 then rounded up to nearest 0.5
 };
 
 // Determine fletching type based on bow type
@@ -362,8 +377,9 @@ archerAssist.getArrowHead = (usage) => {
 
 // Determine if user inputs a valid number
 archerAssist.validateNumber = (validate) => {
-    if (isNaN(validate) || validate < 1) {
-        alert("Please enter a valid number");
+    // Currently only accepts arm spans longer than 55, as there is no data available for children sizes.
+    if (isNaN(validate) || validate < 60) {
+        alert("Please enter an arm span longer than 59");
     };
 };
 
@@ -372,19 +388,6 @@ archerAssist.displayPoundage = function () {
     for (i = 25; i < 84; i = i + 5) {
         $('select[name=poundage]').append(`<option value="${i}">${i}</option>`);
     };
-};
-
-// Change class of third question input tags to hide options based on second question
-archerAssist.filterArrowMaterial = function () {
-    if (results.bowType === 'compound' || results.bowType ==='olympic') { // if bow type is compound or olympic then hide wood arrow option
-
-    } else { // if bow type is traditional then show all
-
-    };
-
-    // for (i = 25; i < 84; i = i + 5) {
-    //     $('select[name=poundage]').append(`<option value="${i}">${i}</option>`);
-    // };
 };
 
 // Initialize
@@ -397,4 +400,5 @@ archerAssist.init = () => {
 // calls our init function on page load
 $(function () {
     archerAssist.init();
+    
 });
